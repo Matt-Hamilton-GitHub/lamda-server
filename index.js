@@ -15,7 +15,7 @@ mongoose.connect(url)
 .then(()=> console.log('successfully connected to the db'))
 .catch(()=> console.log(err => console.log(err)))
 
-//to ber able to send json post requests
+//to be able to send json post requests
 app.use(express.json());
 
 // app.get('/api/test', (req, res) => {res.send(`<h1>Hello</h1>`)})
