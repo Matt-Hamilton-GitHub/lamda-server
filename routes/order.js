@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Order = require('../models/Order');
-const { verifyTokenAndAdmin } = require('./verifyToken');
+const {verifyToken,verifyTokenAndAuthorization, verifyTokenAndAdmin} = require('./verifyToken');
 
 
 //CREATE 
@@ -77,7 +77,8 @@ router.get('/income', verifyTokenAndAdmin, async (req, res) => {
             month: {$month:"$createdAt"},
             sales: "$amount",
     },
-    
+},
+{
       $group : {
         _id:'$month',
         total: {$sum: "$sales"},
