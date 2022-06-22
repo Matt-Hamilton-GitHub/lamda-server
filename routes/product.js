@@ -51,7 +51,7 @@ router.get('/find/:id', verifyTokenAndAuthorization, async (req, res)=>{
 
 //GET ALL PRODUCTS
 
-router.get('/', verifyTokenAndAuthorization, async (req, res)=>{
+router.get('/', async (req, res)=>{
     const qNew = req.query.new;
     const qCategory = req.query.category;
     try{
@@ -67,6 +67,7 @@ router.get('/', verifyTokenAndAuthorization, async (req, res)=>{
         }
         
         res.status(200).json(products)
+        console.log(res.status(200).json(products));
     }catch(err) {res.status(500).json(err)}
     
 })
